@@ -11,6 +11,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body>
 
@@ -20,7 +21,7 @@
 
     <form class="form-inline">
         <input type="search" class="form-control mr-sm-2" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
+        <!--<button class="btn btn-outline-success my-2 my-sm-0">Search</button>-->
     </form>
 
 </nav>
@@ -30,64 +31,68 @@
     <div class="card-deck m-3">
 
         <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
+            <div class="card-header">Nom</div>
             <div class="card-body">
-                <h5 class="card-title">Primary card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">Titre</h5>
+                <p class="card-text">Contenu</p>
+                <div class="container">
+                    <select class="selectpicker">
+                        <option>À Faire</option>
+                        <option>En Cours</option>
+                        <option>Fait</option>
+                    </select>
+                </div>
+                <a href="" class="btn-outline-danger float-right" data-toggle="modal" data-target="#confirmSupression">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                    </svg>
+                </a>
+                <p class="card-text float-left m-2"><small class="text-muted">À faire pour le 23 mars 2021</small></p>
             </div>
         </div>
-        <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-                <h5 class="card-title">Secondary card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+
+
+        <div class="card text-white border-warning bg-warning mb-3"
+             style="max-width:
+        18em">
+            <form>
+            <div class="card-header">
+                <input type="text" placeholder="Nom de la nouvelle tâche">
             </div>
-        </div>
-        <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
-        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-                <h5 class="card-title">Success card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="card-body bg-transparent">
+
+                    <h5 class="card-title "><input type="text" width="50em" placeholder="Titre de la nouvelle tâche"></h5>
+                    <label for="date_rendu">Date de fin : </label>
+                    <input type="date" id="date_rendu" name="date_rendu" >
+
+                    <button class="btn btn-success">Sauvegarder</button>
+
             </div>
+
+            </form>
         </div>
-        <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
-        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-                <h5 class="card-title">Danger card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-        <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
-        <div class="w-100 d-none d-lg-block d-xl-none"><!-- wrap every 4 on lg--></div>
-        <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-                <h5 class="card-title">Warning card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-        <div class="w-100 d-none d-xl-block"><!-- wrap every 5 on xl--></div>
-        <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-                <h5 class="card-title">Info card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-        <div class="card bg-light mb-3" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-                <h5 class="card-title">Light card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-                <h5 class="card-title">Dark card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+    </div>
+
+    <div id="confirmSupression" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirmSupression" aria-hidden="true">
+
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmation suppression</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Êtes-vous sûr de vouloir supprimer cette tâche ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-danger">Supprimer</button>
+                </div>
             </div>
         </div>
 
@@ -146,5 +151,9 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
+<script>
+    $('.form-control').datepicker({});
+</script>
 </body>
 </html>

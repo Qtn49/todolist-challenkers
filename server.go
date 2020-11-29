@@ -17,6 +17,7 @@ var db, _ = gorm.Open("mysql", "root:@/todolist_challenkers?charset=utf8&parseTi
 
 type TodoItem struct {
 	Id          int `gorm:"primary_key"`
+	Titre       string
 	Nom         string
 	Description string
 	Etat        string
@@ -25,9 +26,11 @@ type TodoItem struct {
 
 func CreateItem(w http.ResponseWriter, r *http.Request) {
 
-	nom, description := r.FormValue("nom"), r.FormValue("description")
+	titre, nom, description := r.FormValue("titre"), r.FormValue("nom"),
+		r.FormValue("description")
 	dateRendu, _ := time.Parse(time.ANSIC, r.FormValue("date_rendu"))
-	todo := &TodoItem{Nom: nom, Description: description, Etat: "À Faire", DateRendu: dateRendu}
+	todo := &TodoItem{Titre: titre, Nom: nom, Description: description, Etat: "À Faire",
+		DateRendu: dateRendu}
 	db.Create(&todo)
 	result := db.Last(&todo)
 	w.Header().Set("Content-Type", "application/json")
