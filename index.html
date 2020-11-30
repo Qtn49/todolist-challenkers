@@ -30,14 +30,14 @@
 
     <div class="card-deck m-3">
 
-        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card text-white bg-primary mb-3 hidden" style="max-width: 18rem;">
             <div class="card-header">Nom</div>
             <div class="card-body">
                 <h5 class="card-title">Titre</h5>
                 <p class="card-text">Contenu</p>
                 <div class="container">
-                    <select class="selectpicker">
-                        <option>À Faire</option>
+                    <select class="states">
+                        <option>A Faire</option>
                         <option>En Cours</option>
                         <option>Fait</option>
                     </select>
@@ -48,7 +48,7 @@
                         <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
                     </svg>
                 </a>
-                <p class="card-text float-left m-2"><small class="text-muted">À faire pour le 23 mars 2021</small></p>
+                <p class="card-text float-left m-2"><small class="text-muted">À faire pour le <em>23 mars 2021</em></small></p>
             </div>
         </div>
 
@@ -57,17 +57,17 @@
         <div class="card text-white border-warning bg-warning mb-3"
              style="max-width:
         18em">
-            <form>
+            <form id="form">
             <div class="card-header">
-                <input type="text" placeholder="Nom de la nouvelle tâche">
+                <input type="text" id="nom" placeholder="Nom de la nouvelle tâche" required>
             </div>
             <div class="card-body bg-transparent">
 
-                    <h5 class="card-title "><input type="text" width="50em" placeholder="Titre de la nouvelle tâche"></h5>
-                    <label for="date_rendu">Date de fin : </label>
-                    <input type="date" id="date_rendu" name="date_rendu" >
-
-                    <button class="btn btn-success">Sauvegarder</button>
+                <h5 class="card-title "><input type="text" id="titre" width="50em" placeholder="Titre de la nouvelle tâche" required></h5>
+                <textarea name="contenu" id="contenu" class="form-control m-1" rows="1" required></textarea>
+                <label for="date_rendu">Date de fin : </label>
+                <input type="date" id="date_rendu" name="date_rendu" required >
+                <button class="btn btn-success" id="sauvegarder">Sauvegarder</button>
 
             </div>
 
@@ -91,7 +91,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark" data-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-danger">Supprimer</button>
+                    <button id="supprimer" type="button" class="btn btn-danger">Supprimer</button>
                 </div>
             </div>
         </div>
@@ -152,8 +152,6 @@
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 
-<script>
-    $('.form-control').datepicker({});
-</script>
+<script src="resources/js/main.js"></script>
 </body>
 </html>
